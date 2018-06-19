@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Beer information</h1>
+<div mat-dialog-content *ngIf="this.beerInfo | async as beer" rowHeight="700px">
+    <div class="flex">
+        <div>
+            <img [src]="beer.image_url" [alt]="beer.name">
+        </div>
+        <div>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Name" [readonly]="true" [value]="beer.name">
+            </mat-form-field>
+            <br>
+
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Tag line" [readonly]="true" [value]="beer.tagline">
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="First brewed" [readonly]="true" [value]="beer.first_brewed">
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+                <textarea matTextareaAutosize matInput placeholder="Description" [readonly]="true" [value]="beer.description"></textarea>
+            </mat-form-field>
+
+            <mat-form-field class="full-width-input">
+                <textarea matTextareaAutosize matInput placeholder="Food Pairing" [readonly]="true" [value]="beer.food_pairing.join('\r\n')"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="" cdkFocusInitial>Close</button>
+</div>

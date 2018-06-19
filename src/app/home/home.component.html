@@ -1,0 +1,39 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Angular beers</h1>
+  <mat-grid-list cols="4" rowHeight="700px">
+      <mat-grid-tile>
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                Filters
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+
+              <form [formGroup]="this.filterForm">
+                <mat-form-field>
+                  <input formControlName="foodPairing" matInput placeholder="Pair with food" >
+                </mat-form-field>
+              </form>
+
+
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+
+
+    <mat-grid-tile *ngFor="let card of this.beers | async">
+      <mat-card class="dashboard-card" (click)="this.beerClicked(card.id)">
+        <mat-card-header>
+          <mat-card-title>
+            {{ card.name }}
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{ card.tagline }}
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img [src]="card.image_url" [alt]="card.name">
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

@@ -1,0 +1,12 @@
+img {
+  width: 60%;
+  margin: 0 20%;
+}
+
+.full-width-input {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
